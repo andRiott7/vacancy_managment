@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.andriott.vacancy_managment.modules.candidate.CandidateEntity;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/candidate")
 public class CandidateController {
 
   @PostMapping("/")
-  public void create(@RequestBody CandidateEntity candidateEntity) {
+  public void create(@Valid @RequestBody CandidateEntity candidateEntity) {
     System.out.println("Candidate:");
     System.out.println(candidateEntity.getName() + " email: " + candidateEntity.getEmail());
 
